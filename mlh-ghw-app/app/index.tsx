@@ -1,8 +1,11 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, TouchableOpacity, Alert, Linking} from "react-native";
-import { theme } from "./theme";
+import { StyleSheet, Text, View, TouchableOpacity, Alert, Linking, TextInput} from "react-native";
+import { theme } from "../theme";
+import React, { useState } from 'react';
 
 export default function App() {
+
+  const [todoItems, setToDoItems] = useState([])
 
   const handleSignUp = () => {
     Alert.alert("Register for GHW", "Are you interested to participate in MLH?",
@@ -17,10 +20,11 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.headlineText}> MLH REACT NATIVE APP </Text>
+      <Text style={styles.headlineText}> To Do App </Text>
       <Text> GLOBAL HACK WEEK </Text>
       <Text style={styles.bodyText}> Everyday we have a variety of live sessions for you to tune into and learn more about. Click below to see each day's schedule.</Text>
       <StatusBar style="auto" />
+      <TextInput/>
       <TouchableOpacity style={styles.signUpButton} onPress={handleSignUp}> 
         <Text style={styles.signUpButtonText}> Sign Up</Text>
       </TouchableOpacity>
@@ -31,7 +35,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     alignItems: "center",
-    backgroundColor: theme.colors.white,
+    // backgroundColor: theme.colors.white,
     flex: 1,
     justifyContent: "center",
   },
